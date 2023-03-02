@@ -11,8 +11,8 @@ int	main(int argc, char **argv)
 	if (is_child_process(d->fork.id))
 	{
 		open_input_file(d);
-		redirect_stdout_to_pipe(d);
 		redirect_stdin_to_file_one(d);
+		// redirect_stdout_to_pipe(d);
 		execute_first_command(d);
 		close(d->pipe.input_fd);
 	}
