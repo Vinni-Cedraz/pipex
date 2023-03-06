@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:22:31 by vcedraz-          #+#    #+#             */
-/* j Updated: 2023/03/06 16:01:20 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/06 18:22:31 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ static void			destroy_args_args(t_data *d);
 
 void	execute_first_command(t_data *d)
 {
-	d->pipe.full_cmd1 = ft_strjoin(d->args.cmd1, ft_strdup("/usr/bin/"));
+	int	cmdlen;
+
+	cmdlen = ft_strlen(d->args.cmd1) + ft_strlen("/usr/bin/") + 1;
+	d->pipe.full_cmd1 = malloc(cmdlen * sizeof(char));
+	ft_strlcpy(d->pipe.full_cmd1, "/usr/bin/", cmdlen);
+	ft_strlcat(d->pipe.full_cmd1, d->args.cmd1, cmdlen);
 	init_args_args(d);
 	execve(d->pipe.full_cmd1, d->args.args, NULL);
 	destroy_args_args(d);
