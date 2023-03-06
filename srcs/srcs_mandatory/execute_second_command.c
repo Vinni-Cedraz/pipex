@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   execute_second_command.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 12:00:30 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/06 18:33:16 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/06 18:37:05 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/06 20:40:51 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	handle_error(t_data *d, char *error)
+void	execute_second_command(t_data *d)
 {
-	free(d);
-	perror(error);
-	exit(-1);
+	execve(d->pipe.full_cmd2, d->execve.cmd2_argv, NULL);
 }
