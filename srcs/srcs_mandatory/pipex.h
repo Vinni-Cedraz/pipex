@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 12:21:47 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:33:27 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_execve
 {
 	char			**cmd1_argv;
 	char			**cmd2_argv;
+	char			*full_cmd1;
+	char			*full_cmd2;
 }					t_execve;
 
 typedef struct s_pipe
@@ -49,15 +51,13 @@ typedef struct s_pipe
 	int				fd[2];
 	int				input_fd;
 	int				output_fd;
-	char			*full_cmd1;
-	char			*full_cmd2;
-}					t_pipe;
+}					t_fds;
 
 typedef struct s_data
 {
+	t_fds 			file_descriptors;
 	t_split			*split;
 	t_args			args;
-	t_pipe			pipe;
 	t_fork			fork;
 	t_execve		execve;
 }					t_data;
@@ -75,18 +75,18 @@ int					handle_error(t_data *d, char *error);
 
 static inline void	get_full_cmds_paths(t_data *d)
 {
-	d->pipe.full_cmd1 = ft_strjoin(ft_strdup("/usr/bin/"), d->args.cmd1);
-	d->pipe.full_cmd2 = ft_strjoin(ft_strdup("/usr/bin/"), d->args.cmd2);
+	d->execve.full_cmd1 = ft_strjoin(ft_strdup("/usr/bin/"), d->args.cmd1);
+	d->execve.full_cmd2 = ft_strjoin(ft_strdup("/usr/bin/"), d->args.cmd2);
 }
 
 static inline void	execute_first_command(t_data *d)
 {
-	execve(d->pipe.full_cmd1, d->execve.cmd1_argv, NULL);
+	execve(d->execve.full_cmd1, d->execve.cmd1_argv, NULL);
 }
 
 static inline void	execute_second_command(t_data *d)
 {
-	execve(d->pipe.full_cmd2, d->execve.cmd2_argv, NULL);
+	execve(d->execve.full_cmd2, d->execve.cmd2_argv, NULL);
 }
 
 static inline int	is_child_process(int id)
@@ -98,12 +98,9 @@ static inline void	destroy_data(t_data *d)
 {
 	ft_free_arr(d->execve.cmd1_argv, (void **)d->execve.cmd1_argv);
 	ft_free_arr(d->execve.cmd2_argv, (void **)d->execve.cmd2_argv);
-	ft_free_arr(d->split->str_arr, (void **)d->split->str_arr);
-	close(d->pipe.input_fd);
-	close(d->pipe.output_fd);
-	free(d->split);
 	free(d->args.cmd2);
 	free(d->args.cmd2_arg);
+	free(d->split);
 	free(d);
 }
 
