@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:36:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 12:21:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:26:55 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_data(t_data *d, char **argv, int argc)
 {
 	t_args	*args;
 
+	(void)argc;
 	check_argc_validity(d, argc);
 	d->split = ft_split(argv[3], 32);
 	args = &d->args;
@@ -38,10 +39,10 @@ static inline void	init_execve_argvs(t_data *d)
 	execve = &d->execve;
 	execve->cmd1_argv = malloc(3 * sizeof(char *));
 	execve->cmd2_argv = malloc(4 * sizeof(char *));
-	execve->cmd1_argv[0] = d->pipe.full_cmd1;
+	execve->cmd1_argv[0] = d->execve.full_cmd1;
 	execve->cmd1_argv[1] = ft_strdup(d->args.file1);
 	execve->cmd1_argv[2] = NULL;
-	execve->cmd2_argv[0] = d->pipe.full_cmd2;
+	execve->cmd2_argv[0] = d->execve.full_cmd2;
 	execve->cmd2_argv[1] = ft_strdup(d->args.cmd2_arg);
 	execve->cmd2_argv[2] = ft_strdup(d->args.file2);
 	execve->cmd2_argv[3] = NULL;

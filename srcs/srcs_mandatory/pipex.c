@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/06 21:44:15 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:19:26 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ int	main(int argc, char **argv)
 		redirect_stdout_to_pipe(d);
 		execute_first_command(d);
 	}
-	else
+	create_child_process(d);
+	if (is_child_process(d->fork.id))
 	{
-		wait(0);
 		redirect_stdin_to_pipe(d);
 		redirect_stdout_to_file_two(d);
 		execute_second_command(d);
+	}
+	else
+	{
+		wait(0);
 		destroy_data(d);
 	}
 }
