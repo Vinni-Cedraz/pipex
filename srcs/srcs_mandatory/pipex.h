@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/06 20:51:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:40:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void				open_output_file(t_data *d);
 void				redirect_stdin_to_pipe(t_data *d);
 void				redirect_stdout_to_file_two(t_data *d);
 void				execute_second_command(t_data *d);
-void				destroy_args_args(t_data *d);
+void				destroy_data(t_data *d);
 void				get_full_cmds_paths(t_data *d);
 
 static inline int	is_child_process(int id)
