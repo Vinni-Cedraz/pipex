@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:40:58 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 13:27:20 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:21:59 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 void	open_output_file(t_data *d)
 {
-	printf("file2: %s\n", d->args.file2);
 	d->file_descriptors.output_fd = open(d->args.file2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	printf("output_fd: %d\n", d->file_descriptors.output_fd);
 	if (d->file_descriptors.output_fd == -1)
 		handle_error(d, "open");
 }
