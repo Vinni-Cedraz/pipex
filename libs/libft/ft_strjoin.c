@@ -6,16 +6,16 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:31:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 12:23:25 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:40:52 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static inline size_t	aux_strlcat(char *dst, const char *src, size_t size);
-static inline size_t	aux_strlcpy(char *dst, const char *src, size_t size);
-static inline size_t	aux_strlen(const char *str);
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n);
+static size_t			aux_strlcat(char *dst, const char *src, size_t size);
+static size_t			aux_strlcpy(char *dst, const char *src, size_t size);
+static size_t			aux_strlen(const char *str);
+static void				*aux_memcpy(void *dst, const void *src, size_t n);
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -28,7 +28,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res = malloc(len);
 	aux_strlcpy(res, s1, len);
 	aux_strlcat(res, s2, len);
-	return (free((char *)s1), res);
+	return (res);
 }
 
 static inline size_t	aux_strlen(const char *str)

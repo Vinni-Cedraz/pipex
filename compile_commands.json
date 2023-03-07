@@ -1,0 +1,18 @@
+[
+ {
+  "directory": "/root/pipex",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Ilibs/libft",
+   "-c",
+   "srcs/srcs_mandatory/pipex.c",
+   "-o",
+   "objs/pipex.o"
+  ],
+  "file": "srcs/srcs_mandatory/pipex.c"
+ }
+]

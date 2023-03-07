@@ -19,31 +19,21 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -I$(INC)
 
 SRCS = \
-	  create_child_process \
-	  run_first_child_process \
-	  run_second_child_process \
-	  continue_parent_process \
-	  create_pipe \
-	  handle_error \
-	  init_data \
-	  open_input_file \
-	  open_output_file \
-	  pipex \
-	  close_fds \
-	  redirect_stdin_to_file_one \
-	  redirect_stdout_to_file_two \
-	  redirect_stdout_to_pipe \
-	  redirect_stdin_to_pipe
+	  pipex
 LIBFT_SRCS = \
 	  ft_strjoin \
 	  ft_strdup \
 	  ft_free_arr \
 	  ft_memchr \
 	  ft_word_counter \
-	  ft_split
+	  ft_split \
+	  ft_putstr \
+	  ft_calloc
+	  
+INC = libs/libft
 
 ################ MANDATORY VARIABLES ################
 
