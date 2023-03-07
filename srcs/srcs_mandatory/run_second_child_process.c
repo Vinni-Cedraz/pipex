@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   run_second_child_process.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 15:02:41 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/07 14:44:18 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/07 15:20:54 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv)
+void	run_second_child_process(t_data *d)
 {
-	t_data	*d;
-
-	d = (t_data *)malloc(sizeof(t_data));
-	init_data(d, argv, argc);
-	open_input_file(d);
-	open_output_file(d);
-	create_pipe(d);
-	run_first_child_process(d);
-	continue_parent_process(d);
+	create_child_process(d);
+	if (!is_child_process(d->fork.id))
+		return ;
+	close(d->file_descriptors.fd[WRTE_SIDE]);
+	redirect_stdin_to_pipe(d);
+	redirect_stdout_to_file_two(d);
+	execute_second_command(d);
+	close(d->file_descriptors.fd[READ_SIDE]);
 }
