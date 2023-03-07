@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:22:07 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 13:28:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:20:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	redirect_stdout_to_pipe(t_data *d)
 {
 	short	failure;
 
-	close(d->file_descriptors.fd[READ_SIDE]);
 	failure = dup2(d->file_descriptors.fd[WRTE_SIDE], STDOUT_FILENO);
 	if (failure == -1)
 		handle_error(d, "dup2");

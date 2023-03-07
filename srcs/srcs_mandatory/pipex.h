@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 13:33:27 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:46:36 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_execve
 	char			*full_cmd2;
 }					t_execve;
 
-typedef struct s_pipe
+typedef struct s_fds
 {
 	int				fd[2];
 	int				input_fd;
@@ -69,9 +69,13 @@ void				redirect_stdin_to_file_one(t_data *d);
 void				init_data(t_data *d, char **argv, int argc);
 void				create_pipe(t_data *d);
 void				create_child_process(t_data *d);
+void 				run_first_child_process(t_data *d);
+void				run_second_child_process(t_data *d);
+void				continue_parent_process(t_data *d);
 void				open_input_file(t_data *d);
 void				open_output_file(t_data *d);
 int					handle_error(t_data *d, char *error);
+void				close_fds(t_data *d);
 
 static inline void	get_full_cmds_paths(t_data *d)
 {
@@ -97,11 +101,11 @@ static inline int	is_child_process(int id)
 static inline void	destroy_data(t_data *d)
 {
 	ft_free_arr(d->execve.cmd1_argv, (void **)d->execve.cmd1_argv);
+	free(d->split);
+	free(d);
 	ft_free_arr(d->execve.cmd2_argv, (void **)d->execve.cmd2_argv);
 	free(d->args.cmd2);
 	free(d->args.cmd2_arg);
-	free(d->split);
-	free(d);
 }
 
 #endif

@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   close_fds.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 15:02:41 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/07 14:03:53 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/07 14:31:22 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv)
+void	close_fds(t_data *d)
 {
-	t_data	*d;
-
-	d = (t_data *)malloc(sizeof(t_data));
-	init_data(d, argv, argc);
-	open_input_file(d);
-	open_output_file(d);
-	create_pipe(d);
-	run_first_child_process(d);
-	continue_parent_process(d);
+	close(d->file_descriptors.fd[0]);
+	close(d->file_descriptors.fd[1]);
+	close(d->file_descriptors.input_fd);
+	close(d->file_descriptors.output_fd);
 }

@@ -4,17 +4,17 @@ GRAY      	=  \033[0;37m
 CYAN      	=  \033[0;96m
 WHITE     	=  \033[0;97m
 GREEN     	=  \033[0;92m
-YELLOW          =  \033[0;93m
-MAGENTA         =  \033[0;95m
-DEF_COLOR       =  \033[0;39m# Colors
+YELLOW      =  \033[0;93m
+MAGENTA     =  \033[0;95m
+DEF_COLOR   =  \033[0;39m# Colors
 RED    	  	=  \033[0;91m
 GRAY      	=  \033[0;37m
 CYAN      	=  \033[0;96m
 WHITE     	=  \033[0;97m
 GREEN     	=  \033[0;92m
-YELLOW          =  \033[0;93m
-MAGENTA         =  \033[0;95m
-DEF_COLOR       =  \033[0;39m
+YELLOW      =  \033[0;93m
+MAGENTA     =  \033[0;95m
+DEF_COLOR   =  \033[0;39m
 
 SHELL = /bin/bash
 NAME = pipex.a
@@ -23,12 +23,16 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = \
 	  create_child_process \
+	  run_first_child_process \
+	  run_second_child_process \
+	  continue_parent_process \
 	  create_pipe \
 	  handle_error \
 	  init_data \
 	  open_input_file \
 	  open_output_file \
 	  pipex \
+	  close_fds \
 	  redirect_stdin_to_file_one \
 	  redirect_stdout_to_file_two \
 	  redirect_stdout_to_pipe \
