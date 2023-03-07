@@ -24,8 +24,6 @@ CFLAGS = -Wall -Wextra -Werror -g
 SRCS = \
 	  create_child_process \
 	  create_pipe \
-	  execute_first_command \
-	  execute_second_command \
 	  handle_error \
 	  init_data \
 	  open_input_file \
@@ -34,15 +32,11 @@ SRCS = \
 	  redirect_stdin_to_file_one \
 	  redirect_stdout_to_file_two \
 	  redirect_stdout_to_pipe \
-	  redirect_stdin_to_pipe \
-	  get_full_cmds_paths
+	  redirect_stdin_to_pipe
 LIBFT_SRCS = \
 	  ft_strjoin \
 	  ft_strdup \
 	  ft_free_arr \
-	  ft_strlcat \
-	  ft_strlcpy \
-	  ft_strlen \
 	  ft_memchr \
 	  ft_word_counter \
 	  ft_split

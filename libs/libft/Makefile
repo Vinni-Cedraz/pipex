@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/03/07 11:16:47 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/03/07 11:33:17 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libft.a
 NAME_BONUS = libft_bonus.a
 NAME_PIPEX = srcs_to_pipex.a
 NAME_PIPEX_BONUS = srcs_to_pipex_bonus.a
-CFLAGS = -Wall -Werror -Wextra -O3
+CFLAGS = -Wall -Werror -Wextra -g
 AR = ar -rs
 RM = rm -f
 OBJS_PATH = ./objs/
@@ -106,35 +106,14 @@ ft_lstpop \
 ft_lstshift \
 	
 
-PRNTF_SRCS = ft_putchar \
-             ft_calloc \
-             ft_strlen \
-             ft_memset \
-             ft_itoa_base \
-		   	 ft_itoa \
-			 ft_ishexup \
-			 ft_strlcat \
-			 ft_strdup \
-			 ft_swap \
-
-
-PIPEX_SRCS = ft_strnstr \
-		   ft_swap \
-		   ft_free_arr \
-		   ft_free_t_split \
-		   ft_atoi_base \
-		   ft_word_counter \
-		   ft_strlen \
-		   ft_gnl \
-		   ft_ishexlow \
-		   ft_calloc \
-		   ft_atoi \
+PIPEX_SRCS = \
 		   ft_memchr \
+		   ft_word_counter \
 		   ft_split \
 		   ft_strjoin \
-		   ft_memcpy \
+		   ft_free_arr \
 		   ft_strdup \
-		   ft_putstr \
+
 
 PIPEX_SRCS_BONUS =  ft_strnstr \
 				  ft_swap \
