@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:52:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 19:41:20 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:15:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	main(int argc, char **argv)
 	printf("cmd2[0]: %s\n", cmd2[0]);
 	printf("cmd2[1]: %s\n", cmd2[1]);
 	printf("cmd2[2]: %s\n", cmd2[2]);
-	printf("cmd2[3]: %s\n", cmd2[3]);
 	// create_child
 	id = fork();
 	if (id == -1)
