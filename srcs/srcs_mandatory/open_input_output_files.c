@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   redirect_stdin_to_pipe.c                           :+:      :+:    :+:   */
+/*   open_input_output_files.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 18:38:51 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 16:38:06 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/02 15:25:13 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/08 16:37:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	redirect_stdin_to_pipe(t_data *d)
+void	open_input_output_files(t_data *d)
 {
-	int	failure;
+	t_fds	*fds;
 
-	failure = dup2(d->file_descriptors.fd[READ_SIDE], STDIN_FILENO);
-	if (failure == -1)
-		handle_error(d, "dup2");
+	fds = &d->file_descriptors;
+	fds->input_fd = open(d->args.file1, O_RDONLY);
+	if (fds->input_fd == -1)
+		handle_error(d, "open");
+	fds->output_fd = open(d->args.file2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fds->output_fd == -1)
+		handle_error(d, "open");
 }

@@ -22,28 +22,24 @@ EXECUTABLE = pipex
 CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = \
-	  create_child_process \
-	  run_first_child_process \
-	  run_second_child_process \
-	  continue_parent_process \
-	  create_pipe \
-	  handle_error \
-	  init_data \
-	  open_input_file \
-	  open_output_file \
-	  pipex \
-	  close_fds \
-	  redirect_stdin_to_file_one \
-	  redirect_stdout_to_file_two \
-	  redirect_stdout_to_pipe \
-	  redirect_stdin_to_pipe
+	   create_child_process \
+	   handle_error \
+	   init_data_for_execve \
+	   is_child_process \
+	   is_valid_fd \
+	   open_input_output_files \
+	   pipex \
+	   run_first_child_process \
+	   run_second_child_process \
+	   wait_children_and_finish_properly
 LIBFT_SRCS = \
 	  ft_strjoin \
 	  ft_strdup \
 	  ft_free_arr \
 	  ft_memchr \
 	  ft_word_counter \
-	  ft_split
+	  ft_split \
+	  ft_calloc
 
 ################ MANDATORY VARIABLES ################
 

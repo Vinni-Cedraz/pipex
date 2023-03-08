@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   redirect_stdout_to_pipe.c                          :+:      :+:    :+:   */
+/*   is_child_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 13:22:07 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 16:30:30 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/08 14:39:23 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/08 16:45:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	redirect_stdout_to_pipe(t_data *d)
+inline int	is_child_process(int id)
 {
-	short	failure;
+	return (id == 0);
+}
 
-	failure = dup2(d->file_descriptors.fd[WRTE_SIDE], STDOUT_FILENO);
-	if (failure == -1)
-		handle_error(d, "dup2");
+inline int	is_parent(int id)
+{
+	return (id != 0);
 }
