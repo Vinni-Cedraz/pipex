@@ -19,7 +19,7 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror -g -I$(INC)
+CFLAGS = -Wall -Wextra -Werror -g -I$(INC) -fsanitize=leak
 
 SRCS = \
 	  pipex
@@ -31,7 +31,9 @@ LIBFT_SRCS = \
 	  ft_word_counter \
 	  ft_split \
 	  ft_putstr \
-	  ft_calloc
+	  ft_calloc \
+	  ft_free_t_split
+
 	  
 INC = libs/libft
 

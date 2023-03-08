@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:52:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/08 12:21:28 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:38:37 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,10 @@ int	main(int argc, char **argv)
 		close(pipe_fds[WRTE_END]);
 		close(input_file_fd);
 		close(output_file_fd);
+		ft_free_t_split(split1);
+		ft_free_t_split(split2);
 		ft_free_arr(cmd1, (void **)cmd1);
 		ft_free_arr(cmd2, (void **)cmd2);
-		free(split1);
-		free(split2);
 		free(full_cmd1);
 		free(full_cmd2);
 	}

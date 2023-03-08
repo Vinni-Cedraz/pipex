@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/03/07 17:35:33 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/03/08 12:34:34 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,8 @@ PIPEX_SRCS = \
 		   ft_free_arr \
 		   ft_strdup \
 		   ft_putstr \
-		   ft_calloc
+		   ft_calloc \
+		   ft_free_t_split
 
 
 PIPEX_SRCS_BONUS =  ft_strnstr \
