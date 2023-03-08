@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:45:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/08 16:12:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:41:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void			close_fds(t_data *d);
 
 void	wait_children_and_finish_properly(t_data *d)
 {
-	wait(0);
 	close_fds(d);
 	destroy_data(d);
 }
