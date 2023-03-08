@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:18:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 17:29:48 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:34:02 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <sys/wait.h>
 # include <stdio.h>
 # include <errno.h>
+# include <fcntl.h>
 # include "libft.h"
 
 #endif
