@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:44:18 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/08 16:56:17 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:28:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	run_second_child_process(t_data *d)
 
 static inline void	execute_second_command(t_data *d)
 {
-	execve(d->execve.full_cmd1, d->execve.str_arr1, NULL);
+	execve(d->execve.full_cmd2, d->execve.str_arr2, NULL);
 }
 
 static inline void	close_fd(int fd)
