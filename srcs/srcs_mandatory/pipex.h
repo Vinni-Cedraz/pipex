@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/08 16:54:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 08:26:23 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ typedef struct s_args
 {
 	char		*file1;
 	char		*file2;
-	char		*cmd1;
-	char		*cmd2;
-	char		*cmd2_arg;
 	int			argc;
 }				t_args;
 
@@ -43,9 +40,9 @@ typedef struct s_execve
 
 typedef struct s_fds
 {
-	int			fd[2];
 	int			input_fd;
 	int			output_fd;
+	int			fd[2];
 }				t_fds;
 
 typedef struct s_data
@@ -63,7 +60,7 @@ int				is_parent(int id);
 void			init_data_for_execve(t_data *d, char **argv, int argc);
 void			run_first_child_process(t_data *d);
 void			run_second_child_process(t_data *d);
-void			wait_children_and_finish_properly(t_data *d);
+void			continue_parent_process(t_data *d);
 void			open_input_output_files(t_data *d);
 int				handle_error(t_data *d, char *error);
 int				create_first_child_process(t_data *d);

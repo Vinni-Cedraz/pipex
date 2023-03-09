@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/08 17:00:13 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 08:22:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 		if (is_child_process(id))
 			run_second_child_process(d);
 		else
-			wait_children_and_finish_properly(d);
+			continue_parent_process(d);
 	}
 }
 

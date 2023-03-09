@@ -19,7 +19,7 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=leak
 
 SRCS = \
 	   create_child_process \
@@ -31,7 +31,7 @@ SRCS = \
 	   pipex \
 	   run_first_child_process \
 	   run_second_child_process \
-	   wait_children_and_finish_properly
+	   continue_parent_process 
 LIBFT_SRCS = \
 	  ft_strjoin \
 	  ft_strdup \
@@ -39,7 +39,8 @@ LIBFT_SRCS = \
 	  ft_memchr \
 	  ft_word_counter \
 	  ft_split \
-	  ft_calloc
+	  ft_calloc \
+	  ft_free_t_split
 
 ################ MANDATORY VARIABLES ################
 
