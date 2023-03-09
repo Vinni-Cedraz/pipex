@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:25:13 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 16:38:49 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:57:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	open_input_output_files(t_data *d)
 	t_fds	*fds;
 
 	fds = &d->file_descriptors;
+	if (-1 == access(d->args.file2, R_OK))
+		handle_error(d, "can't access input file", &free_error2);
 	fds->input_fd = open(d->args.file1, O_RDONLY);
 	if (fds->input_fd == -1)
 		handle_error(d, "open input file", &free_error2);

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 17:08:56 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:58:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,12 @@ static inline void	free_error1(t_data *d)
 
 static inline void	free_error2(t_data *d)
 {
-	close(d->file_descriptors.input_fd);
 	free(d);
 }
 
 static inline void	free_error3(t_data *d)
 {
 	close(d->file_descriptors.input_fd);
-	close(d->file_descriptors.output_fd);
 	free(d);
 }
 
