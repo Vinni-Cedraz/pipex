@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 16:59:59 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:09:13 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void			redirect_stdin_to_input_fd(t_data *d);
 
 void	run_first_child_process(t_data *d)
 {
-	close_fd(d->file_descriptors.fd[READ_SIDE]);
+	close(d->file_descriptors.fd[READ_SIDE]);
 	redirect_stdout_to_pipewrte(d);
-	close_fd(d->file_descriptors.output_fd);
+	close(d->file_descriptors.output_fd);
 	redirect_stdin_to_input_fd(d);
 	execute_first_command(d);
-	close_fd(d->file_descriptors.input_fd);
-	close_fd(d->file_descriptors.fd[WRTE_SIDE]);
+	close(d->file_descriptors.input_fd);
+	close(d->file_descriptors.fd[WRTE_SIDE]);
 	
 }
 

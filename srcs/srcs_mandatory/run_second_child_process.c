@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:44:18 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 17:00:15 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:09:18 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void			redirect_stdout_to_output_fd(t_data *d);
 
 void	run_second_child_process(t_data *d)
 {
-	close_fd(d->file_descriptors.fd[WRTE_SIDE]);
+	close(d->file_descriptors.fd[WRTE_SIDE]);
 	redirect_stdin_to_piperead(d);
-	close_fd(d->file_descriptors.input_fd);
+	close(d->file_descriptors.input_fd);
 	redirect_stdout_to_output_fd(d);
 	execute_second_command(d);
-	close_fd(d->file_descriptors.output_fd);
-	close_fd(d->file_descriptors.fd[READ_SIDE]);
+	close(d->file_descriptors.output_fd);
+	close(d->file_descriptors.fd[READ_SIDE]);
 }
 
 static inline void	execute_second_command(t_data *d)

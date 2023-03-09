@@ -26,7 +26,6 @@ SRCS = \
 	   handle_error \
 	   init_data_for_execve \
 	   is_child_process \
-	   is_valid_fd \
 	   open_input_output_files \
 	   pipex \
 	   run_first_child_process \
