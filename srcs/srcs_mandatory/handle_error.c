@@ -6,15 +6,15 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:00:30 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/06 18:33:16 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:37:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	handle_error(t_data *d, char *error)
+int	handle_error(t_data *d, char *error, t_func custom_free_function_ptr)
 {
-	free(d);
+	(*custom_free_function_ptr)(d);
 	perror(error);
 	exit(-1);
 }

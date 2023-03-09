@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:44:02 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/08 16:55:31 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:52:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	create_first_child_process(t_data *d)
 
 	id = fork();
 	if (-1 == id)
-		handle_error(d, "fork");
+		handle_error(d, "first fork", &free_error4);
 	return (id);
 }
 
@@ -29,6 +29,6 @@ int	wait_and_create_second_child(t_data *d)
 	wait(0);
 	id = fork();
 	if (-1 == id)
-		handle_error(d, "fork");
+		handle_error(d, "second_fork", &free_error4);
 	return (id);
 }

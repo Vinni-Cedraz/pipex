@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 08:22:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:44:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	main(int argc, char **argv)
 		if (is_child_process(id))
 			run_second_child_process(d);
 		else
-			continue_parent_process(d);
+			standard_free_function(d);
 	}
 }
 
 static inline void	create_pipe(t_data *d)
 {
 	if (-1 == pipe(d->file_descriptors.fd))
-		handle_error(d, "pipe");
+		handle_error(d, "create pipe", &free_error4);
 }

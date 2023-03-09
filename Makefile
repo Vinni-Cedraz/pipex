@@ -31,7 +31,7 @@ SRCS = \
 	   pipex \
 	   run_first_child_process \
 	   run_second_child_process \
-	   continue_parent_process 
+	   standard_free_function
 LIBFT_SRCS = \
 	  ft_strjoin \
 	  ft_strdup \

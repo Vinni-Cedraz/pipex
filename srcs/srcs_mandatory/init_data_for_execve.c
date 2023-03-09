@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:36:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 14:34:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:24:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_data_for_execve(t_data *d, char **argv, int argc)
 	d->args.file1 = argv[1];
 	d->args.file2 = argv[4];
 	if (argc != 5)
-		handle_error(d, "Invalid number of arguments");
+		handle_error(d, "Invalid number of arguments", &free_error1);
 	split_commands_from_their_args(d, argv);
 	get_full_cmds_paths(d);
 	create_execve_strarrs(d);
