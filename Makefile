@@ -19,7 +19,7 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=leak
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = \
 	   create_child_process \

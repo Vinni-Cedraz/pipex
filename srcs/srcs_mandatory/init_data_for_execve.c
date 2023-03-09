@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:36:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 08:29:53 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:34:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ static void	create_execve_strarrs(t_data *d)
 {
 	int	i;
 
-	d->execve.str_arr1 = ft_calloc(sizeof(char *), d->split1->words + 2);
+	d->execve.str_arr1 = ft_calloc(sizeof(char *), d->split1->words + 1);
 	i = -1;
 	while (++i < (int)d->split1->words)
 		d->execve.str_arr1[i] = ft_strdup(d->split1->str_arr[i]);
-	d->execve.str_arr1[i] = ft_strdup(d->args.file1);
 	d->execve.str_arr2 = ft_calloc(sizeof(char *), d->split2->words + 1);
 	i = -1;
 	while (++i < (int)d->split2->words)
