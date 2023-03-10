@@ -6,7 +6,7 @@ WHITE     	=  \033[0;97m
 GREEN     	=  \033[0;92m
 YELLOW      =  \033[0;93m
 MAGENTA     =  \033[0;95m
-DEF_COLOR   =  \033[0;39m# Colors
+DEF_COLOR   =  \033[0;39m
 RED    	  	=  \033[0;91m
 GRAY      	=  \033[0;37m
 CYAN      	=  \033[0;96m
@@ -19,7 +19,7 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -O3
 
 SRCS = \
 	   create_child_process \
@@ -59,18 +59,18 @@ make_libft:
 $(NAME): make_libft $(OBJS) 
 	@printf "\n$(YELLOW)Linking pipex Objects to Library...$(DEF_COLOR)\n";
 	@for file in $(MOD_OBJ); do \
-		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                       \r"; \
+		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                            \r"; \
 		ar -rsc $(NAME) $$file; \
 	done
 	@for file in $(SRCS); do \
 		if [[ -z "$$(nm $(NAME) | grep $${file}.o:)" ]]; then \
 		ar -rsc $(NAME) $(OBJS_PATH)$$file.o; \
-		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                        \r"; \
+		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                            \r"; \
 	fi; \
 	done
-	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)\n"; \
+	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)                                                       \n"; \
 	$(CC) $(CFLAGS) $(NAME) $(LIBFT_PATH)srcs_to_pipex.a $(MLXFLAGS) -o $(EXECUTABLE);
-	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                             \n";
+	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                               \n";
 	@printf "\njust execute $(GREEN)./$(EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)                  \n";
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
