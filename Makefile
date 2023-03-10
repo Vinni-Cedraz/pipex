@@ -19,7 +19,7 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -O3
 
 SRCS = \
 	   create_child_process \
@@ -91,7 +91,7 @@ clean:
 	@rm -rf $(OBJS_PATH)
 	@make clean_pipex -C $(LIBFT_PATH) --no-print-directory
 	@rm -f $(NAME)
-	@rm -f file2
+	@rm -f file*
 
 fclean: clean
 	@make fclean_pipex -C $(LIBFT_PATH) --no-print-directory

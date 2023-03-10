@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 18:58:07 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:06:31 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int					is_valid_fd(int fd);
 int					handle_error(t_data *d, char *error, t_func f);
 int					is_child_process(int id);
 int					is_parent(int id);
-void				init_data_for_execve(t_data *d, char **argv, int argc);
+void				init_data_for_execve(t_data *d, char **argv);
 void				run_first_child_process(t_data *d);
 void				run_second_child_process(t_data *d);
 void				standard_free_function(t_data *d);

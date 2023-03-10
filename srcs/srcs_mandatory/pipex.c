@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 16:44:50 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:06:33 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	main(int argc, char **argv)
 	t_data	*d;
 	int		id;
 
+	if (argc != 5)
+		handle_error(&(t_data){0}, "Invalid number of arguments", (t_func){0});
 	d = (t_data *)malloc(sizeof(t_data));
-	init_data_for_execve(d, argv, argc);
+	init_data_for_execve(d, argv);
 	open_input_output_files(d);
 	create_pipe(d);
 	id = create_first_child_process(d);
