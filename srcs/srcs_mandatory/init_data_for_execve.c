@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:36:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 23:01:16 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:25:04 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ static void	split_commands_from_their_args(t_data *d, char **argv);
 static void	get_full_cmds_paths(t_data *d);
 static void	create_execve_strarrs(t_data *d);
 
-void	init_data_for_execve(t_data *d, char **argv)
+void	init_data_for_execve(t_data *d, char **argv, char **envp)
 {
 	d->args.file1 = argv[1];
 	d->args.file2 = argv[4];
+	d->args.envp = envp;
 	split_commands_from_their_args(d, argv);
 	get_full_cmds_paths(d);
 	create_execve_strarrs(d);

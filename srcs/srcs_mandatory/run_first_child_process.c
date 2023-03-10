@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/09 22:51:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:26:17 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ static inline void	redirect_stdin_to_input_fd(t_data *d)
 
 static inline void	execute_first_command(t_data *d)
 {
-	execve(d->execve.full_cmd1, d->execve.str_arr1, NULL);
+	execve(d->execve.full_cmd1, d->execve.str_arr1, d->args.envp);
 }
