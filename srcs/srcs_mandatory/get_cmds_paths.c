@@ -6,33 +6,33 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 20:40:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/10 21:53:32 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:21:06 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void			get_cmd1_path(t_data *d, char **paths);
-static void			get_cmd2_path(t_data *d, char **paths);
+static void			get_cmd1_path(t_data *d);
+static void			get_cmd2_path(t_data *d);
 
 void	get_cmds_paths(t_data *d)
 {
 	char	**envp;
-	t_split	*split;
 
 	envp = d->args.envp;
 	while (ft_strncmp(*envp, "PATH=", 5) != 0)
 		envp++;
-	split = ft_split(*envp + 5, ':');
-	get_cmd1_path(d, split->str_arr);
-	get_cmd2_path(d, split->str_arr);
-	ft_free_t_split(split);
+	d->paths = ft_split_envp(*envp + 5, ':');
+	get_cmd1_path(d);
+	get_cmd2_path(d);
 }
 
-static inline void	get_cmd1_path(t_data *d, char **paths)
+static inline void	get_cmd1_path(t_data *d)
 {
 	char	full_possible_name[99];
+	char	**paths;
 
+	paths = d->paths;
 	while (*paths)
 	{
 		ft_strlcpy(full_possible_name, *paths, 99);
@@ -42,13 +42,17 @@ static inline void	get_cmd1_path(t_data *d, char **paths)
 			break ;
 		paths++;
 	}
+	if (!*paths)
+		handle_error(d, "", &free_error1, 127);
 	d->args.cmd1_path = ft_strjoin(*paths, "/");
 }
 
-static inline void	get_cmd2_path(t_data *d, char **paths)
+static inline void	get_cmd2_path(t_data *d)
 {
 	char	full_possible_name[99];
+	char	**paths;
 
+	paths = d->paths;
 	while (*paths)
 	{
 		ft_strlcpy(full_possible_name, *paths, 99);
@@ -58,5 +62,7 @@ static inline void	get_cmd2_path(t_data *d, char **paths)
 			break ;
 		paths++;
 	}
+	if (!*paths)
+		handle_error(d, "", &free_error1_alt, 127);
 	d->args.cmd2_path = ft_strjoin(*paths, "/");
 }

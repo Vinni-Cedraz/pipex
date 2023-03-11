@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/10 21:27:51 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:21:30 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ typedef struct s_data
 	t_split			*split2;
 	t_args			args;
 	t_execve		execve;
+	char			**paths;
 }					t_data;
 
 typedef void		(*t_func)(t_data *);
 int					is_valid_fd(int fd);
-int					handle_error(t_data *d, char *error, t_func f);
 int					is_child_process(int id);
 int					is_parent(int id);
 void				run_first_child_process(t_data *d);
@@ -69,30 +69,59 @@ void				open_input_output_files(t_data *d);
 int					create_first_child_process(t_data *d);
 int					wait_and_create_second_child(t_data *d);
 void				init_data_for_execve(t_data *d, char **argv, char **envp);
+int					handle_error(t_data *d, char *err, t_func free_err, int x);
 void				get_cmds_paths(t_data *d);
 
 static inline void	free_error1(t_data *d)
 {
+	ft_putstr_fd(d->split1->str_arr[0], 2);
+	ft_free_t_split(d->split1);
+	ft_free_t_split(d->split2);
+	free(d->paths);
+	free(d);
+}
+
+static inline void	free_error1_alt(t_data *d)
+{
+	ft_putstr_fd(d->split2->str_arr[0], 2);
+	free(d->args.cmd1_path);
+	ft_free_t_split(d->split1);
+	ft_free_t_split(d->split2);
+	free(d->paths);
 	free(d);
 }
 
 static inline void	free_error2(t_data *d)
 {
+	close(d->file_descriptors.input_fd);
+	close(d->file_descriptors.output_fd);
+	free(d->args.cmd1_path);
+	free(d->args.cmd2_path);
+	ft_free_t_split(d->split1);
+	ft_free_t_split(d->split2);
+	free(d->execve.full_cmd1);
+	free(d->execve.full_cmd2);
+	ft_free_arr(d->execve.str_arr1, (void **)d->execve.str_arr1);
+	ft_free_arr(d->execve.str_arr2, (void **)d->execve.str_arr2);
+	free(d->paths);
 	free(d);
 }
 
 static inline void	free_error3(t_data *d)
 {
 	close(d->file_descriptors.input_fd);
-	free(d);
-}
-
-static inline void	free_error4(t_data *d)
-{
-	close(d->file_descriptors.input_fd);
 	close(d->file_descriptors.output_fd);
 	close(d->file_descriptors.fd[READ_SIDE]);
 	close(d->file_descriptors.fd[WRTE_SIDE]);
+	free(d->args.cmd1_path);
+	free(d->args.cmd2_path);
+	ft_free_t_split(d->split1);
+	ft_free_t_split(d->split2);
+	free(d->execve.full_cmd1);
+	free(d->execve.full_cmd2);
+	ft_free_arr(d->execve.str_arr1, (void **)d->execve.str_arr1);
+	ft_free_arr(d->execve.str_arr2, (void **)d->execve.str_arr2);
+	free(d->paths);
 	free(d);
 }
 

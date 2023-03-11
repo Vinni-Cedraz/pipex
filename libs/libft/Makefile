@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/03/10 21:29:33 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/03/11 15:20:03 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ WHITE = \033[0;97m
 
 ## SRCS VARIABLES ##
 SRCS = ft_abs \
+ft_islow \
 ft_atoi \
 ft_free_t_split \
 ft_free_arr \
@@ -43,8 +44,6 @@ ft_free_arr_size \
 ft_isalpha \
 ft_isascii \
 ft_isdigit \
-ft_isprint \
-ft_ishexup \
 ft_ishexlow \
 ft_memchr \
 ft_memcmp \
@@ -59,12 +58,10 @@ ft_atoi_base \
 ft_strncmp \
 ft_word_counter \
 ft_calloc \
-ft_hexdump \
 ft_memmove \
 ft_putnbr_fd \
 ft_putstr \
 ft_putstr_fd \
-ft_rev_int_tab \
 ft_striteri \
 ft_strrchr \
 ft_strrev \
@@ -73,9 +70,7 @@ ft_tolower \
 ft_toupper \
 ft_bzero \
 ft_isalnum \
-ft_itoa_base \
 ft_putendl_fd \
-ft_sort_int_tab \
 ft_strchr \
 ft_strdup \
 ft_strlcat \
@@ -110,6 +105,7 @@ PIPEX_SRCS = \
 		   ft_memchr \
 		   ft_word_counter \
 		   ft_split \
+		   ft_split_envp \
 		   ft_strjoin \
 		   ft_free_arr \
 		   ft_strdup \
@@ -117,37 +113,13 @@ PIPEX_SRCS = \
 		   ft_free_t_split \
 		   ft_strlcat \
 		   ft_strlcpy \
+		   ft_islow \
+		   ft_strlen \
+		   ft_putchar_fd \
+		   ft_putstr_fd \
+		   ft_putendl_fd \
 		   ft_strncmp
 
-
-PIPEX_SRCS_BONUS =  ft_strnstr \
-				  ft_swap \
-			  	  ft_free_arr_size \
-				  ft_free_t_split \
-				  ft_atoi_base \
-				  ft_word_counter \
-				  ft_strlen \
-				  ft_gnl \
-				  ft_ishexlow \
-				  ft_ishexup \
-				  ft_calloc \
-				  ft_atoi \
-				  ft_memchr \
-				  ft_split \
-				  ft_strjoin \
-				  ft_memcpy \
-				  ft_strdup \
-				  ft_strtrim \
-				  ft_substr \
-				  ft_putstr \
-				  ft_strchr \
-				  ft_lstnew \
-				  ft_lstadd_back \
-				  ft_lstlast \
-				  ft_lst_make_it_circular \
-				  ft_lstcircular_free \
-				  ft_lstfree \
-				  ft_memmove \
 
 ## OBJS VARIABLES ##
 

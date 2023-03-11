@@ -34,15 +34,22 @@ SRCS = \
 	   get_cmds_paths
 LIBFT_SRCS = \
 	  ft_strjoin \
+	  ft_split_envp \
+	  ft_split \
 	  ft_strdup \
 	  ft_free_arr \
 	  ft_memchr \
+	  ft_putstr_fd \
+	  ft_putendl_fd \
+	  ft_putchar_fd \
 	  ft_word_counter \
 	  ft_split \
+	  ft_islow \
 	  ft_calloc \
 	  ft_free_t_split \
 	  ft_strncmp \
 	  ft_strlcpy \
+	  ft_strlen \
 	  ft_strlcat
 
 ################ MANDATORY VARIABLES ################

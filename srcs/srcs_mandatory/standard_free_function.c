@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:45:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/10 23:34:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:40:51 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	standard_free_function(t_data *d)
 {
 	close_fds(d);
 	destroy_data(d);
+	exit(EXIT_SUCCESS);
 }
 
 static inline void	close_fds(t_data *d)
@@ -39,5 +40,6 @@ static inline void	destroy_data(t_data *d)
 	free(d->execve.full_cmd2);
 	free(d->args.cmd1_path);
 	free(d->args.cmd2_path);
+	free(d->paths);
 	free(d);
 }

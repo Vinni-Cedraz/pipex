@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:13:04 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/07 12:21:44 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:45:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # endif
 
 # include <fcntl.h>
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -53,11 +54,19 @@ typedef struct s_plit
 
 }			t_split;
 
+typedef struct s_counters
+{
+	size_t	from_start;
+	size_t	from_end;
+}			t_counters;
+
 // ASCII TYPE IDENTIFICATION FUNCTIONS:
 
 // the ft_isdigit() function tests whether int c represents a character
 // in the ascii table and returns 1 if it is, otherwise it returns 0.
 int			ft_isdigit(int c);
+// is it lower-case
+int			ft_islow(int c);
 // ft_isalnum - checks for an alphanumeric character and
 // returns 0 or 1 (true or false) accordingly.
 int			ft_isalnum(int c);
@@ -156,6 +165,7 @@ char		*ft_strtrim(char const *s1, char const *set);
 // ft_split receives a string and a set of chars, and it returns an array of
 // strings, each one being a substring of s1 that is delimited by a char c:
 t_split		*ft_split(char const *s, char c);
+char		**ft_split_envp(char *str, char c);
 // OUTPUT MANIPULATION FUNCTIONS:
 
 // ft_atoi converts a string to an int, it can handle negative numbers:
