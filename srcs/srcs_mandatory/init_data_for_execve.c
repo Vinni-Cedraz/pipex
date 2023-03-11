@@ -6,14 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:36:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/10 20:25:04 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/10 21:27:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 static void	split_commands_from_their_args(t_data *d, char **argv);
-static void	get_full_cmds_paths(t_data *d);
+static void	join_cmd_path_with_name(t_data *d);
 static void	create_execve_strarrs(t_data *d);
 
 void	init_data_for_execve(t_data *d, char **argv, char **envp)
@@ -22,7 +22,8 @@ void	init_data_for_execve(t_data *d, char **argv, char **envp)
 	d->args.file2 = argv[4];
 	d->args.envp = envp;
 	split_commands_from_their_args(d, argv);
-	get_full_cmds_paths(d);
+	get_cmds_paths(d);
+	join_cmd_path_with_name(d);
 	create_execve_strarrs(d);
 }
 
@@ -32,10 +33,10 @@ static void	split_commands_from_their_args(t_data *d, char **argv)
 	d->split2 = ft_split(argv[3], ' ');
 }
 
-static void	get_full_cmds_paths(t_data *d)
+static void	join_cmd_path_with_name(t_data *d)
 {
-	d->execve.full_cmd1 = ft_strjoin("/usr/bin/", d->split1->str_arr[0]);
-	d->execve.full_cmd2 = ft_strjoin("/usr/bin/", d->split2->str_arr[0]);
+	d->execve.full_cmd1 = ft_strjoin(d->args.cmd1_path, d->split1->str_arr[0]);
+	d->execve.full_cmd2 = ft_strjoin(d->args.cmd2_path, d->split2->str_arr[0]);
 }
 
 static void	create_execve_strarrs(t_data *d)

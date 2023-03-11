@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:45:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/10 20:27:42 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/10 21:55:53 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ static inline void destroy_data(t_data *d) {
   ft_free_t_split(d->split2);
   free(d->execve.full_cmd1);
   free(d->execve.full_cmd2);
+  free(d->args.cmd1_path);
+  free(d->args.cmd2_path);
   free(d);
 }

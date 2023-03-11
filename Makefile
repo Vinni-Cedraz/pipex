@@ -30,7 +30,8 @@ SRCS = \
 	   pipex \
 	   run_first_child_process \
 	   run_second_child_process \
-	   standard_free_function
+	   standard_free_function \
+	   get_cmds_paths
 LIBFT_SRCS = \
 	  ft_strjoin \
 	  ft_strdup \
@@ -39,7 +40,10 @@ LIBFT_SRCS = \
 	  ft_word_counter \
 	  ft_split \
 	  ft_calloc \
-	  ft_free_t_split
+	  ft_free_t_split \
+	  ft_strncmp \
+	  ft_strlcpy \
+	  ft_strlcat
 
 ################ MANDATORY VARIABLES ################
 
