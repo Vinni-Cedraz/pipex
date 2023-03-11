@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 15:57:26 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:44:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	run_first_child_process(t_data *d)
 	close(d->file_descriptors.output_fd);
 	redirect_stdin_to_input_fd(d);
 	execute_first_command(d);
-	close(d->file_descriptors.input_fd);
-	close(d->file_descriptors.fd[WRTE_SIDE]);
 }
 
 static inline void	redirect_stdout_to_pipewrte(t_data *d)

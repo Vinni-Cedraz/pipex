@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:44:18 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 15:57:31 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:44:22 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	run_second_child_process(t_data *d)
 	close(d->file_descriptors.input_fd);
 	redirect_stdout_to_output_fd(d);
 	execute_second_command(d);
-	close(d->file_descriptors.output_fd);
-	close(d->file_descriptors.fd[READ_SIDE]);
 }
 
 static inline void	execute_second_command(t_data *d)
