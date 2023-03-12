@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 20:55:07 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:31:59 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,58 +71,9 @@ int					create_second_child(t_data *d);
 void				init_data_for_execve(t_data *d, char **argv, char **envp);
 int					handle_error(t_data *d, char *err, t_func free_err, int x);
 void				get_cmds_paths(t_data *d);
-
-static inline void	free_error1(t_data *d)
-{
-	ft_putstr_fd(d->split1->str_arr[0], 2);
-	ft_free_t_split(d->split1);
-	ft_free_t_split(d->split2);
-	free(d->paths);
-	free(d);
-}
-
-static inline void	free_error1_alt(t_data *d)
-{
-	ft_putstr_fd(d->split2->str_arr[0], 2);
-	free(d->args.cmd1_path);
-	ft_free_t_split(d->split1);
-	ft_free_t_split(d->split2);
-	free(d->paths);
-	free(d);
-}
-
-static inline void	free_error2(t_data *d)
-{
-	close(d->file_descriptors.input_fd);
-	close(d->file_descriptors.output_fd);
-	free(d->args.cmd1_path);
-	free(d->args.cmd2_path);
-	ft_free_t_split(d->split1);
-	ft_free_t_split(d->split2);
-	free(d->execve.full_cmd1);
-	free(d->execve.full_cmd2);
-	ft_free_arr(d->execve.str_arr1, (void **)d->execve.str_arr1);
-	ft_free_arr(d->execve.str_arr2, (void **)d->execve.str_arr2);
-	free(d->paths);
-	free(d);
-}
-
-static inline void	free_error3(t_data *d)
-{
-	close(d->file_descriptors.input_fd);
-	close(d->file_descriptors.output_fd);
-	close(d->file_descriptors.fd[READ_SIDE]);
-	close(d->file_descriptors.fd[WRTE_SIDE]);
-	free(d->args.cmd1_path);
-	free(d->args.cmd2_path);
-	ft_free_t_split(d->split1);
-	ft_free_t_split(d->split2);
-	free(d->execve.full_cmd1);
-	free(d->execve.full_cmd2);
-	ft_free_arr(d->execve.str_arr1, (void **)d->execve.str_arr1);
-	ft_free_arr(d->execve.str_arr2, (void **)d->execve.str_arr2);
-	free(d->paths);
-	free(d);
-}
+void				custom_free1(t_data *d);
+void				custom_free2(t_data *d);
+void				custom_free3(t_data *d);
+void				custom_free1_alt(t_data *d);
 
 #endif

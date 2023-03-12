@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 20:40:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 16:21:06 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:33:47 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static inline void	get_cmd1_path(t_data *d)
 		paths++;
 	}
 	if (!*paths)
-		handle_error(d, "", &free_error1, 127);
+		handle_error(d, "pipex", &custom_free1, 0);
 	d->args.cmd1_path = ft_strjoin(*paths, "/");
 }
 
@@ -63,6 +63,6 @@ static inline void	get_cmd2_path(t_data *d)
 		paths++;
 	}
 	if (!*paths)
-		handle_error(d, "", &free_error1_alt, 127);
+		handle_error(d, "pipex", &custom_free1_alt, 0);
 	d->args.cmd2_path = ft_strjoin(*paths, "/");
 }

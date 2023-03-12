@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 21:03:24 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:37:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv, char **envp)
 static inline void	create_pipe(t_data *d)
 {
 	if (-1 == pipe(d->file_descriptors.fd))
-		handle_error(d, "create pipe", &free_error2, EXIT_FAILURE);
+		handle_error(d, "create pipe", &custom_free2, EXIT_FAILURE);
 }
 
 static inline void	check_number_of_args(int argc)

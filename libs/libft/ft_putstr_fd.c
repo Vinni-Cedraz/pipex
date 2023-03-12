@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 20:09:59 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/18 18:00:24 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:25:33 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 size_t	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return (0);
-	return (write(fd, s, ft_strlen(s)));
+	int	res;
+
+	res = 0;
+	while (s && *s)
+		res += write(fd, s++, 1);
+	return (res);
 }
