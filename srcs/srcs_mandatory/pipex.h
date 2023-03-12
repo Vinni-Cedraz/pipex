@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/12 16:06:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:39:55 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_execve
 	char		**str_arr2;
 	char		*full_cmd1;
 	char		*full_cmd2;
+	char		*slash1;
+	char		*slash2;
 	short		cmd1_is_nil;
 	short		cmd2_is_nil;
 }				t_execve;

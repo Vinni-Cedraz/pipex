@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:33:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 21:37:14 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/12 09:45:34 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ static inline void	check_number_of_args(int argc)
 	if (argc == 5)
 		return ;
 	errno = EINVAL;
-	perror("Error:");
+	perror("Error");
 	exit(EXIT_FAILURE);
 }

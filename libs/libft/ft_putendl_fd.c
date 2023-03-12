@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 21:26:17 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 21:48:00 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/10 23:48:28 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static inline int	local_putstr_fd(char *s, int fd)
 {
 	int	res;
 
+	res = 0;
 	while (s && *s)
 		res += write(fd, s++, 1);
 	return (res);

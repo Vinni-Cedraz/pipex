@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/03/11 21:43:05 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/03/12 16:35:23 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libft.a
 NAME_BONUS = libft_bonus.a
 NAME_PIPEX = srcs_to_pipex.a
 NAME_PIPEX_BONUS = srcs_to_pipex_bonus.a
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -O3
 AR = ar -rs
 RM = rm -f
 OBJS_PATH = ./objs/
@@ -114,6 +114,7 @@ PIPEX_SRCS = \
 		   ft_strlcat \
 		   ft_strlcpy \
 	  	   ft_putendl_fd \
+		   ft_strrchr \
 		   ft_strncmp
 
 

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:00:30 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/12 16:06:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/12 09:44:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	handle_error(t_data *d, char *error, t_func custom_free, int x)
 
 void	cmd_one_is_nil(t_data *d)
 {
-	char error_message[50];
-	
+	char	error_message[50];
+
 	ft_strlcpy(error_message, "command not found: ", 20);
 	ft_strlcat(error_message, d->split1->str_arr[0], 50);
 	ft_putendl_fd(error_message, STDERR_FILENO);
@@ -31,7 +31,7 @@ void	cmd_one_is_nil(t_data *d)
 
 void	cmd_two_is_nil(t_data *d)
 {
-	char error_message[50];
+	char	error_message[50];
 
 	ft_strlcpy(error_message, "command not found: ", 20);
 	ft_strlcat(error_message, d->split2->str_arr[0], 50);

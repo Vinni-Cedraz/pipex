@@ -19,7 +19,7 @@ DEF_COLOR   =  \033[0;39m
 SHELL = /bin/bash
 NAME = pipex.a
 EXECUTABLE = pipex
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -O3
 
 SRCS = \
 	   create_child_process \
@@ -44,6 +44,7 @@ LIBFT_SRCS = \
 	  ft_calloc \
 	  ft_free_t_split \
 	  ft_strncmp \
+	  ft_strrchr \
 	  ft_strlcpy \
 	  ft_putendl_fd \
 	  ft_strlcat
