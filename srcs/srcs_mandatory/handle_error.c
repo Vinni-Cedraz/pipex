@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:00:30 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 21:42:37 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:06:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,24 @@ int	handle_error(t_data *d, char *error, t_func custom_free, int x)
 	exit(x);
 }
 
-void	custom_free1(t_data *d)
+void	cmd_one_is_nil(t_data *d)
 {
 	char error_message[50];
 	
 	ft_strlcpy(error_message, "command not found: ", 20);
 	ft_strlcat(error_message, d->split1->str_arr[0], 50);
 	ft_putendl_fd(error_message, STDERR_FILENO);
-	ft_free_t_split(d->split1);
-	ft_free_t_split(d->split2);
-	free(d->paths);
-	free(d);
+	d->execve.cmd1_is_nil = 1;
 }
 
-void	custom_free1_alt(t_data *d)
+void	cmd_two_is_nil(t_data *d)
 {
 	char error_message[50];
 
 	ft_strlcpy(error_message, "command not found: ", 20);
 	ft_strlcat(error_message, d->split2->str_arr[0], 50);
 	ft_putendl_fd(error_message, STDERR_FILENO);
-	free(d->args.cmd1_path);
-	ft_free_t_split(d->split1);
-	ft_free_t_split(d->split2);
-	free(d->paths);
-	free(d);
+	d->execve.cmd2_is_nil = 1;
 }
 
 void	custom_free2(t_data *d)

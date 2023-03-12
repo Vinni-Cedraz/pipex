@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:36:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 16:12:36 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/12 15:55:15 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	init_data_for_execve(t_data *d, char **argv, char **envp)
 	d->args.file2 = argv[4];
 	d->args.envp = envp;
 	d->file_descriptors = (t_fds){0};
+	d->execve = (t_execve){0};
 	split_commands_from_their_args(d, argv);
 	get_cmds_paths(d);
 	join_cmd_path_with_name(d);
