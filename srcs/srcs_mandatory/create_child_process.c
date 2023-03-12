@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:44:02 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 15:58:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:55:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	create_first_child_process(t_data *d)
 	return (id);
 }
 
-int	wait_and_create_second_child(t_data *d)
+int	create_second_child(t_data *d)
 {
 	int	id;
 

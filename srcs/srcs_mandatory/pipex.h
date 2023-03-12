@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:52:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 16:21:30 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:55:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void				run_second_child_process(t_data *d);
 void				standard_free_function(t_data *d);
 void				open_input_output_files(t_data *d);
 int					create_first_child_process(t_data *d);
-int					wait_and_create_second_child(t_data *d);
+int					create_second_child(t_data *d);
 void				init_data_for_execve(t_data *d, char **argv, char **envp);
 int					handle_error(t_data *d, char *err, t_func free_err, int x);
 void				get_cmds_paths(t_data *d);

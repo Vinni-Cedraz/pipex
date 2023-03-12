@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:45:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/11 15:40:51 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:03:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void			close_fds(t_data *d);
 
 void	standard_free_function(t_data *d)
 {
+	wait(NULL);
 	close_fds(d);
 	destroy_data(d);
 	exit(EXIT_SUCCESS);
