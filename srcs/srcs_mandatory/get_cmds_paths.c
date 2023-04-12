@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 20:40:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/12 16:10:50 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:25:06 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ static inline void	get_cmd1_path(t_data *d)
 		paths++;
 	}
 	if (!*paths)
+	{
+		printf("%s\n", d->split1->str_arr[0]);
 		cmd_one_is_nil(d);
+	}
 	d->args.cmd1_path = ft_strjoin(*paths, "/");
 }
 

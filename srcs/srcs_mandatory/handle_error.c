@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:00:30 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/12 09:44:35 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:24:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	cmd_one_is_nil(t_data *d)
 	ft_strlcat(error_message, d->split1->str_arr[0], 50);
 	ft_putendl_fd(error_message, STDERR_FILENO);
 	d->execve.cmd1_is_nil = 1;
+	ft_free_t_split(d->split1);
+	ft_free_t_split(d->split2);
+	free(d->paths);
+	free(d);
+	exit(1);
 }
 
 void	cmd_two_is_nil(t_data *d)
@@ -37,6 +42,11 @@ void	cmd_two_is_nil(t_data *d)
 	ft_strlcat(error_message, d->split2->str_arr[0], 50);
 	ft_putendl_fd(error_message, STDERR_FILENO);
 	d->execve.cmd2_is_nil = 1;
+	ft_free_t_split(d->split1);
+	ft_free_t_split(d->split2);
+	free(d->paths);
+	free(d);
+	exit(1);
 }
 
 void	custom_free2(t_data *d)
